@@ -1,0 +1,25 @@
+body {
+    margin-left: 50px
+}
+
+.bloco {
+    width: 100%;
+    font-size: 12pt;
+    font-family: sans-serif;
+    margin-bottom: 1em;
+}
+
+div.bloco button.tentar {
+    margin-left: 1.25em;
+    font-weight: bold;
+}
+
+div.bloco button.desistir {
+    margin-left: 5em;
+    background-color: red;
+    font-weight: bold;
+}
+
+.mensagem {
+    width: 100%;
+}
