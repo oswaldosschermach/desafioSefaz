@@ -33,6 +33,8 @@
     </dependencies>
     
      <build>
+        <finalName>adivinhe</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
