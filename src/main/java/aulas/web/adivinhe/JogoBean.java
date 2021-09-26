@@ -45,5 +45,6 @@ public class JogoBean implements Serializable {
     public void reiniciar() {
         jogadorBean.jogarNovamente();
         palpite = palpiteAnterior = null;
+        certo = false;
     }
 }

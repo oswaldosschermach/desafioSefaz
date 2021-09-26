@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
@@ -22,7 +21,8 @@
                     <p style="font-weight: bold">Você é capaz de adivinhar em qual número estou pensando?</p>
                 </h:panelGroup>
                 <h:panelGroup layout="block" styleClass="bloco">
-                    <h:panelGroup layout="block" styleClass="bloco">
+                    <h:panelGroup layout="block" styleClass="bloco"
+                                  rendered="#{not jogoBean.certo}">
                         <p:outputLabel for="palpite" value="Seu palpite:"/>
                         <p:inputNumber id="palpite" value="#{jogoBean.palpite}" size="3"
                                        decimalPlaces="0"
@@ -33,6 +33,7 @@
                         <p:commandButton value="Desisto!" action="#{jogoBean.reiniciar}"
                                          styleClass="desistir" update="@all" immediate="true"
                                          rendered="#{not jogoBean.certo}"/>
+                        <p:message for="palpite"/>
                     </h:panelGroup>
                     <h:panelGroup layout="block" styleClass="bloco" style="width: 100%"
                                   rendered="#{not empty jogoBean.palpiteAnterior and not jogoBean.certo}">
@@ -50,7 +51,11 @@
                                          detail="Você acertou em #{jogadorBean.numTentativas} tentativas."
                                          styleClass="mensagem"/>
                     </h:panelGroup>
-                    <p:message for="palpite"/>
+                    <h:panelGroup layout="block" styleClass="bloco"
+                                  rendered="#{jogoBean.certo}">
+                        <p:commandButton value="Jogar novamente" action="#{jogoBean.reiniciar}"
+                                         styleClass="tentar" update="@all"/>
+                    </h:panelGroup>
                 </h:panelGroup>
             </h:panelGroup>
         </h:form>
