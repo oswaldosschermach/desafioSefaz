@@ -47,7 +47,7 @@
                     </h:panelGroup>
                     <h:panelGroup layout="block" styleClass="bloco"
                                   rendered="#{jogoBean.certo}">
-                        <p:staticMessage severity="info" summary="Parabéns! O número é ${jogadorBean.numeroAtual}."
+                        <p:staticMessage severity="info" summary="Parabéns! O número é #{jogadorBean.numeroAtual}."
                                          detail="Você acertou em #{jogadorBean.numTentativas} tentativas."
                                          styleClass="mensagem"/>
                     </h:panelGroup>
