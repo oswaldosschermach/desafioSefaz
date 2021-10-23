@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title>Adivinho o Número!</title>
+        <h:outputStylesheet name="css/geral.css"/>
+        <h:outputStylesheet name="css/padrao.css"/>
+        <h:outputStylesheet name="css/adivinhe.css"/>
+    </h:head>
+
+    <h:body styleClass="template">
+        <div class="topo">
+            <ui:insert name="topo">
+                <h:graphicImage name="imagens/topo.png"/>
+            </ui:insert>
+        </div>
+        <div class="conteudo">
+            <ui:insert name="conteudo">
+                Conteúdo
+            </ui:insert>
+        </div>
+        <div class="rodape">
+            <ui:insert name="rodape">
+                Adivinhe o Número!<br/>
+                CSM41 - Desenvolvimento de Aplicações Web
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

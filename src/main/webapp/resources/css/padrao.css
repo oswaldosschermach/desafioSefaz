@@ -1,0 +1,24 @@
+.template {
+    padding: 5px;
+    background-color: white;
+    margin-bottom: 1em;
+}
+
+.template div.topo {
+    background-color: #eeeeee;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.template div.rodape {
+    background-color: #eeeeee;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.template div.conteudo {
+    background-color: #eeeeee;
+    height: 400px;
+    text-align: center;
+    margin-bottom: 1em;
+}

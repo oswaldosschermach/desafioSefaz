@@ -42,9 +42,10 @@ public class JogoBean implements Serializable {
         palpite = null;
     }
 
-    public void reiniciar() {
+    public String reiniciar() {
         jogadorBean.jogarNovamente();
         palpite = palpiteAnterior = null;
         certo = false;
+        return "index?faces-redirect=true";
     }
 }

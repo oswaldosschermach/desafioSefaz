@@ -1,7 +1,3 @@
-body {
-    margin-left: 50px
-}
-
 .bloco {
     width: 100%;
     font-size: 12pt;
@@ -22,4 +18,26 @@ div.bloco button.desistir {
 
 .mensagem {
     width: 100%;
+}
+
+div.conteudo div.formulario {
+    width: max-content;
+    display: inline-block;
+    text-align: left;
+}
+
+div.inicio {
+    text-align: center;
+}
+
+div.inicio div.regras {
+    display: inline-block;
+    text-align: left;
+    width: max-content;
+    font-size: 12pt;
+    line-height: 20pt;
+}
+
+div.inicio div.regras h2 {
+    text-align: center;
 }

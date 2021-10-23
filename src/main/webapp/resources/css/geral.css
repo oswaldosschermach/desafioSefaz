@@ -1,0 +1,9 @@
+body {
+    background-color: white;
+    font-size: 10pt;
+    font-family: sans-serif;
+    color: black;  
+    margin: 1em;
+    text-align: left;
+    min-width: 650px;
+}

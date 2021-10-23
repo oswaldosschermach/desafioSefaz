@@ -52,6 +52,15 @@ public class JogadorBean implements Serializable {
         this.numTentativas = numTentativas;
     }
 
+    /**
+     * Calcula o número de pontos que o jogador tem neste momento.
+     * @return O número de pontos
+     */
+    public int getPontos() {
+        int pontos = maximo - minimo - numTentativas + 1;
+        return  pontos < 0 ? 0 : pontos;
+    }
+
     public void incrementarTentativas() {
         this.numTentativas++;
     }
