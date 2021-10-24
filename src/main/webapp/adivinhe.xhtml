@@ -11,55 +11,55 @@
                 <h:form>
                     <h:panelGroup layout="block">
                         <div class="formulario">
-                        <h:panelGroup layout="block" styleClass="bloco">
-                            <p>Olá, Jogador!</p>
+                            <h:panelGroup layout="block" styleClass="bloco">
+                                <p>Olá, Jogador!</p>
 
-                            <p>
-                                Estou pensando em um número entre <b>#{jogadorBean.minimo}</b> e
-                                <b>#{jogadorBean.maximo}</b>.
-                            </p>
+                                <p>
+                                    Estou pensando em um número entre <b>#{jogadorBean.minimo}</b> e
+                                    <b>#{jogadorBean.maximo}</b>.
+                                </p>
 
-                            <p style="font-weight: bold">Você é capaz de adivinhar em qual número estou pensando?</p>
-                        </h:panelGroup>
-                        <h:panelGroup layout="block" styleClass="bloco">
-                            <h:panelGroup layout="block" styleClass="bloco"
-                                          rendered="#{not jogoBean.certo}">
-                                <p:outputLabel for="palpite" value="Seu palpite:"/>
-                                <p:inputNumber id="palpite" value="#{jogoBean.palpite}" size="3"
-                                               decimalPlaces="0"
-                                               minValue="#{jogadorBean.minimo}" maxValue="#{jogadorBean.maximo}"
-                                               required="true"/>
-                                <p:commandButton value="Tentar!" action="#{jogoBean.tentar}"
-                                                 styleClass="tentar" update="@all"/>
-                                <p:commandButton value="Desisto!" action="#{jogoBean.reiniciar}"
-                                                 styleClass="desistir" update="@all" immediate="true"
-                                                 rendered="#{not jogoBean.certo}"/>
-                                <p:message for="palpite"/>
+                                <p style="font-weight: bold">Você é capaz de adivinhar em qual número estou pensando?</p>
                             </h:panelGroup>
-                            <h:panelGroup layout="block" styleClass="bloco" style="width: 100%"
-                                          rendered="#{not empty jogoBean.palpiteAnterior and not jogoBean.certo}">
-                                <p:staticMessage severity="warn" summary="#{jogoBean.palpiteAnterior} não é o número em que estou pensando!"
-                                                 detail="Tente novamente." styleClass="mensagem"/>
+                            <h:panelGroup layout="block" styleClass="bloco">
+                                <h:panelGroup layout="block" styleClass="bloco"
+                                              rendered="#{not jogoBean.certo}">
+                                    <p:outputLabel for="palpite" value="Seu palpite:"/>
+                                    <p:inputNumber id="palpite" value="#{jogoBean.palpite}" size="3"
+                                                   decimalPlaces="0"
+                                                   minValue="#{jogadorBean.minimo}" maxValue="#{jogadorBean.maximo}"
+                                                   required="true"/>
+                                    <p:commandButton value="Tentar!" action="#{jogoBean.tentar}"
+                                                     styleClass="tentar" update="@all"/>
+                                    <p:commandButton value="Desisto!" action="#{jogoBean.reiniciar}"
+                                                     styleClass="desistir" update="@all" immediate="true"
+                                                     rendered="#{not jogoBean.certo}"/>
+                                    <p:message for="palpite"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="bloco" style="width: 100%"
+                                              rendered="#{not empty jogoBean.palpiteAnterior and not jogoBean.certo}">
+                                    <p:staticMessage severity="warn" summary="#{jogoBean.palpiteAnterior} não é o número em que estou pensando!"
+                                                     detail="Tente novamente." styleClass="mensagem"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="bloco"
+                                              rendered="#{not empty jogoBean.palpiteAnterior and not jogoBean.certo}">
+                                    <p:staticMessage severity="info" summary="Você tentou #{jogadorBean.numTentativas} vezes até agora."
+                                                      styleClass="mensagem"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="bloco"
+                                              rendered="#{jogoBean.certo}">
+                                    <p:staticMessage severity="info" summary="Parabéns! O número é #{jogadorBean.numeroAtual}."
+                                                     detail="Você acertou em #{jogadorBean.numTentativas} tentativas."
+                                                     styleClass="mensagem"/>
+                                    <p:staticMessage severity="info" summary="Você obteve #{jogadorBean.pontos} pontos!"
+                                                     styleClass="mensagem"/>
+                                </h:panelGroup>
+                                <h:panelGroup layout="block" styleClass="bloco"
+                                              rendered="#{jogoBean.certo}">
+                                    <p:commandButton value="Jogar novamente" action="#{jogoBean.reiniciar}"
+                                                     styleClass="tentar" update="@all"/>
+                                </h:panelGroup>
                             </h:panelGroup>
-                            <h:panelGroup layout="block" styleClass="bloco"
-                                          rendered="#{not empty jogoBean.palpiteAnterior and not jogoBean.certo}">
-                                <p:staticMessage severity="info" summary="Você tentou #{jogadorBean.numTentativas} vezes até agora."
-                                                  styleClass="mensagem"/>
-                            </h:panelGroup>
-                            <h:panelGroup layout="block" styleClass="bloco"
-                                          rendered="#{jogoBean.certo}">
-                                <p:staticMessage severity="info" summary="Parabéns! O número é #{jogadorBean.numeroAtual}."
-                                                 detail="Você acertou em #{jogadorBean.numTentativas} tentativas."
-                                                 styleClass="mensagem"/>
-                                <p:staticMessage severity="info" summary="Você obteve #{jogadorBean.pontos} pontos!"
-                                                 styleClass="mensagem"/>
-                            </h:panelGroup>
-                            <h:panelGroup layout="block" styleClass="bloco"
-                                          rendered="#{jogoBean.certo}">
-                                <p:commandButton value="Jogar novamente" action="#{jogoBean.reiniciar}"
-                                                 styleClass="tentar" update="@all"/>
-                            </h:panelGroup>
-                        </h:panelGroup>
                         </div>
                     </h:panelGroup>
                 </h:form>
