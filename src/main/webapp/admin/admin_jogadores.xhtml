@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/padrao.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="conteudo">
+        <h:form>
+            <div class="bloco">
+                <h2>JOGADORES</h2>
+                <div style="margin: 0 5em 0 5em">
+                    <p:dataTable value="#{adminJogadoresBean.jogadores}" var="j"
+                                 sortBy="#{j.nome}"
+                                 paginator="true" paginatorAlwaysVisible="true"
+                                 rows="10">
+                        <p:column headerText="Código"
+                                  sortBy="#{j.codigo}" filterBy="#{j.codigo}"
+                                  style="width: 5em">
+                            <h:outputText value="#{j.codigo}"/>
+                        </p:column>
+                        <p:column headerText="Apelido"
+                                  sortBy="#{j.apelido}" filterBy="#{j.apelido}"
+                                  style="width: 10em">
+                            <h:outputText value="#{j.apelido}"/>
+                        </p:column>
+                        <p:column headerText="Nome"
+                                  sortBy="#{j.nome}" filterBy="#{j.nome}">
+                            <h:outputText value="#{j.nome}"/>
+                        </p:column>
+                        <p:column headerText="E-Mail"
+                                  sortBy="#{j.email}" filterBy="#{j.email}">
+                            <h:outputText value="#{j.email}"/>
+                        </p:column>
+                        <p:column headerText="Data Nasc"
+                                  sortBy="#{j.dataNasc}" filterBy="#{j.dataNasc}"
+                                  style="width: 8em">
+                            <h:outputText value="#{j.dataNasc}">
+                                <f:convertDateTime type="date" dateStyle="short"/>
+                            </h:outputText>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+                <div class="bloco" style="text-align: center; margin: 1em 0 1em 0">
+                    <p:commandButton value="Acesso" styleClass="tentar" style="margin-bottom: 1em"                                     immediate="true"
+                                     action="/acesso?faces-redirect=true"/>
+                </div>
+                <p:messages globalOnly="true"/>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

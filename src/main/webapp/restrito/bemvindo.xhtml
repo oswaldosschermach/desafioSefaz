@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/padrao.xhtml">
+
+    <ui:define name="conteudo">
+        <h:form>
+            <div class="inicio">
+                <div class="regras">
+                    <h2>Bem-vindo ao Jogo da Adivinhação!</h2>
+                    <p>As regras deste jogo são muito simples:</p>
+                    <ul>
+                        <li>Você terá que adivinhar o número em que estou pensando.</li>
+                        <li>Você pode tentar quantas vezes quiser.</li>
+                        <li>Em quanto MENOS tentativas você acertar, MAIOR será a sua pontuação.</li>
+                    </ul>
+                    <div>
+                    <div>
+                        <h4>Por favor, identifique-se:</h4>
+                        <div style="margin-bottom: 0.5em">
+                            <p:outputLabel value="Apelido:" for="apelido"
+                                           styleClass="label-default" style="width: 100px"/>
+                            <p:inputText id="apelido" value="#{jogadorBean.apelido}"
+                                         required="true" readonly="true"/>
+                            <p:message for="apelido"/>
+                        </div>
+                        <div>
+                            <p:outputLabel value="Nome:" for="nome"
+                                           styleClass="label-default" style="width: 100px"/>
+                            <p:inputText id="nome" value="#{jogadorBean.nome}"
+                                         required="true"/>
+                            <p:message for="nome" severity="error"/>
+                        </div>
+                    </div>
+                    </div>
+                    <p>Boa sorte!</p>
+                </div>
+                <div class="bloco">
+                    <p:commandButton value="Iniciar o jogo" styleClass="tentar"
+                                     update="@all"
+                                     action="#{jogoBean.iniciarJogo}"/>
+                    <p:commandButton value="Sair" styleClass="tentar"
+                                     update="@all" immediate="true"
+                                     action="#{jogoBean.sair}"/>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

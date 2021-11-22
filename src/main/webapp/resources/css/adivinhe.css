@@ -11,7 +11,7 @@ div.bloco button.tentar {
 }
 
 div.bloco button.desistir {
-    margin-left: 5em;
+    margin-left: 2em;
     background-color: red;
     font-weight: bold;
 }
@@ -40,4 +40,10 @@ div.inicio div.regras {
 
 div.inicio div.regras h2 {
     text-align: center;
+}
+
+label.label-default {
+    font-weight: bold;
+    text-align: right;
+    display: inline-block;
 }

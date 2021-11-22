@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/templates/padrao.xhtml">
+
+    <ui:define name="conteudo">
+        <h:form>
+            <div class="inicio">
+                <div class="regras">
+                    <h2>ACESSO</h2>
+                    <div style="margin-bottom: 0.5em">
+                        <p:outputLabel value="Usuário:" for="usuario"
+                                       styleClass="label-default" style="width: 100px"/>
+                        <p:inputText id="usuario" value="#{jogadorBean.apelido}"
+                                     maxlength="30" required="true"/>
+                        <p:message for="usuario"/>
+                    </div>
+                    <div>
+                        <p:outputLabel value="Senha:" for="senha"
+                                       styleClass="label-default" style="width: 100px"/>
+                        <p:password id="senha" value="#{jogoBean.senha}"
+                                    maxlength="16" required="true"/>
+                        <p:message for="senha" severity="error"/>
+                    </div>
+                    <div class="bloco" style="text-align: center; margin-top: 2em">
+                        <p:commandButton value="Entrar" styleClass="tentar"
+                                         update="@all"
+                                         action="#{jogoBean.entrar}"/>
+                    </div>
+                    <p:messages globalOnly="true"/>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
