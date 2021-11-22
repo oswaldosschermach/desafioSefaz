@@ -15,7 +15,7 @@
                     <p:dataTable value="#{adminJogadoresBean.jogadores}" var="j"
                                  sortBy="#{j.nome}"
                                  paginator="true" paginatorAlwaysVisible="true"
-                                 rows="10">
+                                 paginatorPosition="bottom" rows="10">
                         <p:column headerText="Código"
                                   sortBy="#{j.codigo}" filterBy="#{j.codigo}"
                                   style="width: 5em">
