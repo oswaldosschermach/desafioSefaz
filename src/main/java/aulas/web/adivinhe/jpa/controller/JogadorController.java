@@ -6,9 +6,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.transaction.Transactional;
 
 /**
- * Implemente operações JPA sobre os jogadores.
+ * Implementa operações JPA sobre os jogadores.
  * @author Wilson Horstmeyer Bogado
  */
 public class JogadorController implements Serializable {
@@ -37,11 +40,14 @@ public class JogadorController implements Serializable {
 
     /**
      * Retorna todos os jogadores cadastrados.
-     * Usa uma consulta JPQL.
+     * Usa a API de critérios.
      * @return A lista de jogadores
      */
     public List<Jogador> findAll() {
-        TypedQuery<Jogador> q = em.createQuery("select j from Jogador j", Jogador.class);
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Jogador> cq = cb.createQuery(Jogador.class);
+        cq.from(Jogador.class);
+        TypedQuery<Jogador> q = em.createQuery(cq);
         return q.getResultList();
     }
 
@@ -51,5 +57,30 @@ public class JogadorController implements Serializable {
 
     public void setObterJogos(boolean obterJogos) {
         this.obterJogos = obterJogos;
+    }
+
+    @Transactional
+    public void persist(Jogador jogador) {
+        em.persist(jogador);
+    }
+
+    @Transactional
+    public Jogador merge(Jogador jogador) {
+        return em.merge(jogador);
+    }
+
+    @Transactional
+    public Jogador remove(Integer codJogador) {
+        Jogador j = findByCodigo(codJogador);
+        if (j != null)
+            em.remove(j);
+        return j;
+    }
+
+    @Transactional
+    public Jogador remove(Jogador jogador) {
+        Jogador j = merge(jogador);
+        em.remove(j);
+        return j;
     }
 }

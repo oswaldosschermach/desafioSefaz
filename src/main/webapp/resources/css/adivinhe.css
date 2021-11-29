@@ -47,3 +47,13 @@ label.label-default {
     text-align: right;
     display: inline-block;
 }
+
+span.p-datepicker input.ui-inputfield {
+    width: 120px;
+}
+
+span.ui-button.botao-excluir, button.ui-button.botao-excluir {
+    width: 14pt;
+    height: 14pt;
+    background-color: red;
+}

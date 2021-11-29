@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                template="/WEB-INF/templates/padrao.xhtml">
+
+    <ui:define name="conteudo">
+        <c:set var="jogador" value="#{cadastroBean.jogador}"/>
+        <h:form>
+            <div class="inicio">
+                <div class="regras">
+                    <h2>CADASTRO DE JOGADOR</h2>
+                    <div style="margin-bottom: 0.5em">
+                        <p:outputLabel value="Apelido:" for="apelido"
+                                       styleClass="label-default" style="width: 100px"/>
+                        <p:inputText id="apelido" value="#{jogador.apelido}"
+                                     maxlength="30" required="true"/>
+                        <p:message for="apelido"/>
+                    </div>
+                    <div style="margin-bottom: 0.5em">
+                        <p:outputLabel value="Nome:" for="nome"
+                                       styleClass="label-default" style="width: 100px"/>
+                        <p:inputText id="nome" value="#{jogador.nome}"
+                                     maxlength="100" required="true"/>
+                        <p:message for="nome"/>
+                    </div>
+                    <div style="margin-bottom: 0.5em">
+                        <p:outputLabel value="E-mail:" for="email"
+                                       styleClass="label-default" style="width: 100px"/>
+                        <p:inputText id="email" value="#{jogador.email}"
+                                     maxlength="200" required="true"/>
+                        <p:message for="email"/>
+                    </div>
+                    <div style="margin-bottom: 0.5em">
+                        <p:outputLabel value="Data de nascimento:" for="datanasc"
+                                       styleClass="label-default" style="width: 200px"/>
+                        <p:datePicker id="datanasc" value="#{jogador.dataNasc}"
+                                      mask="99/99/9999"
+                                      required="true"/>
+                        <p:message for="datanasc"/>
+                    </div>
+                    <div class="bloco" style="text-align: center; margin-top: 2em">
+                        <p:commandButton value="Cadastrar" styleClass="tentar"
+                                         update="@all" action="#{cadastroBean.cadastrar}"/>
+                        <p:commandButton value="Cancelar" styleClass="tentar"
+                                         immediate="true" style="background-color: red"
+                                         action="/acesso"/>
+                    </div>
+                    <p:messages globalOnly="true" showDetail="true"/>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

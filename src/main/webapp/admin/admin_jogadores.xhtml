@@ -9,6 +9,7 @@
 
     <ui:define name="conteudo">
         <h:form>
+            <p:growl globalOnly="true"/>
             <div class="bloco">
                 <h2>JOGADORES</h2>
                 <div style="margin: 0 5em 0 5em">
@@ -40,13 +41,20 @@
                                 <f:convertDateTime type="date" dateStyle="short"/>
                             </h:outputText>
                         </p:column>
+                        <p:column style="text-align: center; width: 20px; vertical-align: middle">
+                            <f:facet name="header">
+                                <span class="pi pi-times ui-button botao-excluir" title="Exluir"/>
+                            </f:facet>
+                            <p:commandButton icon="pi pi-times" styleClass="botao-excluir"
+                                             action="#{adminJogadoresBean.exluir(j.codigo)}"
+                                             title="Exluir" update="@all"/>
+                        </p:column>
                     </p:dataTable>
                 </div>
                 <div class="bloco" style="text-align: center; margin: 1em 0 1em 0">
-                    <p:commandButton value="Acesso" styleClass="tentar" style="margin-bottom: 1em"                                     immediate="true"
-                                     action="/acesso?faces-redirect=true"/>
+                    <p:commandButton value="Acesso" styleClass="tentar" style="margin-bottom: 1em"
+                                     immediate="true" action="/acesso?faces-redirect=true"/>
                 </div>
-                <p:messages globalOnly="true"/>
             </div>
         </h:form>
     </ui:define>
