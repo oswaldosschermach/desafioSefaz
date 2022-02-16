@@ -13,10 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- * Implementa operações JPA sobre os jogos.
- * @author Wilson Horstmeyer Bogado
- */
+
 public class JogoController implements Serializable {
 
     @PersistenceContext

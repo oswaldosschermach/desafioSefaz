@@ -16,20 +16,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
-/**
- * Representa um registro de jogador no banco de dados.
- * @author Wilson Horstmeyer Bogado
- *
- * Script de criação da tabela:
- *      create table jogador (
- *           codigo int auto_increment not null,
- *           apelido varchar(30) not null,
- *           nome varchar(100) not null,
- *           email varchar(200) not null,
- *           data_nasc date not null,
- *           primary key(codigo)
- *      );
- */
+
 @Entity
 @Table(name = "jogador")
 public class Jogador implements Serializable {

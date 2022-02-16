@@ -4,10 +4,7 @@ import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-/**
- * Representa a sessão do jogador.
- * @author Wilson Horstmeyer Bogado
- */
+
 @Named
 @SessionScoped
 public class JogadorBean implements Serializable {

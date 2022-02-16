@@ -8,10 +8,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- * Representa a chave primária de um registo de jogo.
- * @author Wilson Horstmeyer Bogado
- */
+
 @Embeddable
 public class JogoPK implements Serializable {
 

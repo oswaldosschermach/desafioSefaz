@@ -5,15 +5,12 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
 
-/**
- * Implementa operações JPA sobre os jogadores.
- * @author Wilson Horstmeyer Bogado
- */
 public class JogadorController implements Serializable {
 
     @PersistenceContext
@@ -36,6 +33,23 @@ public class JogadorController implements Serializable {
             j.getJogos().get(0);
         }
         return j;
+    }
+    /**
+     * Retorna um jogador, dado o seu apelido.
+     * @param apelido O apelido do jogador
+     * @return O jogador
+     */
+    public Jogador findByApelido(String apelido) {
+        Jogador jogador;
+        String query = "select j from Jogador j where apelido = :apelido";
+        try {
+            TypedQuery<Jogador> q = em.createQuery(query, Jogador.class)
+                    .setParameter("apelido", apelido);
+            jogador = q.getSingleResult();
+        } catch (NoResultException nre) {
+            jogador = null;
+        }
+        return jogador;
     }
 
     /**

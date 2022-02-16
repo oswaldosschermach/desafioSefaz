@@ -7,10 +7,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-/**
- * Suporte à página de adivinhação de número.
- * @author Wilson Horstmeyer Bogado
- */
+
 @Named
 @ViewScoped
 public class JogoBean implements Serializable {
@@ -21,6 +18,8 @@ public class JogoBean implements Serializable {
 
     @Inject
     private JogadorBean jogadorBean;
+    @Inject
+    private AdminJogadoresBean jogador;
 
     public Integer getPalpite() {
         return palpite;
@@ -66,7 +65,7 @@ public class JogoBean implements Serializable {
 
     public String entrar() {
         String action = null;
-        if ("s3gr3d0".equals(senha)) {
+        if (jogador.validaJogador(jogadorBean.getApelido()) && "s3gr3d0".equals(senha)) {
             action = "/restrito/bemvindo?faces-redirect=true";
         } else {
             FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário ou senha incorretos", null);

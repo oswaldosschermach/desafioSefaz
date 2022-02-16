@@ -9,19 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-/**
- * Representa um registro de jogo no banco de dados.
- * @author Wilson Horstmeyer Bogado
- *
- * Script de criação da tabels:
- *       create table jogo (
- *           cod_jogador int not null,
- *           data_hora timestamp not null,
- *           pontuacao int not null,
- *           primary key(cod_jogador, data_hora),
- *           foreign key(cod_jogador) references jogador(codigo)
- *       );
- */
+
 @Entity
 @Table(name = "jogo")
 public class Jogo implements Serializable {

@@ -10,15 +10,13 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-/**
- * Suporte à view de administração de jogadores.
- * @author Wilson Horstmeyer Bogado
- */
+
 @Named
 @ViewScoped
 public class AdminJogadoresBean implements Serializable {
 
-    private List<Jogador> jogadores;
+     private List<Jogador> jogadores;
+    private Jogador jogador;
 
     @Inject
     private JogadorController jogadorController;
@@ -37,6 +35,13 @@ public class AdminJogadoresBean implements Serializable {
         this.jogadores = jogadores;
     }
 
+     public boolean validaJogador(String apelido){
+        jogador = jogadorController.findByApelido(apelido);
+        String palavra = jogador.getApelido();
+        
+        return palavra.equals(apelido);
+    }
+    
     public void exluir(Integer codJogador) {
         try {
             Jogador jogador = jogadorController.remove(codJogador);

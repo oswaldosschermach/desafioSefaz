@@ -9,10 +9,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-/**
- * Representa a sessão do jogador.
- * @author Wilson Horstmeyer Bogado
- */
+
 @Named
 @ViewScoped
 public class CadastroBean implements Serializable {
