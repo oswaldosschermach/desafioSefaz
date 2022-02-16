@@ -1,0 +1,3 @@
+Utilizei o wildfly-26.0.1
+para acessar a aplicacao basta abrir o seguinte caminho bin/standalone.bat
+depois de executar navegue para http://localhost:8080/adivinhe
